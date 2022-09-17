@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+
+body {
+    font-family: 'Iceberg', cursive;
+}
+
+button, .button {
+    cursor: pointer;
+}
+
+formation-field, player-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
