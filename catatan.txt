@@ -1,9 +1,11 @@
 To Do Important:
-- pilih pemain, hapus pemain dan menetapkan jumlah maksimal pemain
+- install tailwind
 - rendering pemain sesuai posisinya, sarannya menaruh posisi semua pemain itu menggunakan properti relative atau fixed
 - buat formation template pake custom component, jadinya udah disediakan div unutk contohnya posisi GK, RWB, RMF dsb
+- tambahin satu local storage untuk pemain yang masuk starting line up
 
 To Do Optional:
+- Menambahkan tombol untuk menghapus semua daftar pemain
 - Menerapkan minifying bundel.js, Plugin pada Webpack
 - convert gambar jadi svg
 - buat night mode, di atas copyright kasik sosial mediaku, github, linkedin, email
@@ -55,5 +57,5 @@ Menambahkan fungsi untuk mendeteksi pemain yang duplikat sebelum dimasukkan ke d
 
 Mengubah cara untuk render pemain yang dicari dan yang sudah dipilih menggunakan teori nested custom element
 Menambahkan jumlah maksimal pemain yang bisa ditambahkan
-Menambahkan tombol untuk menghapus pemain dari dalam daftar pemain dan tombol hapus semua pemain yang ada
-20 menit
+Menambahkan tombol untuk menghapus pemain dari dalam daftar pemain
+40 menit
