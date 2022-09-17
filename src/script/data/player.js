@@ -55,6 +55,7 @@ const renderSelectedPlayers = () => {
     const chosenPlayerField = $("chosen-player-field")
     if(checkForStorage()){
         if(localStorage.getItem(playersLocalStorageKey) !== null){
+            $("chosen-player-field").show();
             let data = localStorage.getItem(playersLocalStorageKey);
             data = JSON.parse(data);
             if($("chosen-player-list"))
@@ -63,6 +64,8 @@ const renderSelectedPlayers = () => {
             chosenPlayerList.players = data.players;
             chosenPlayerField.append(chosenPlayerList);
             setRemoveButton();
+        } else {
+            $("chosen-player-field").hide();
         }
     }
 }

@@ -70,13 +70,22 @@ const checkForPlayers = (players, id)=> {
 }
 
 const removePlayer = id => {
+    let playersArray = [];
     let data = JSON.parse(localStorage.getItem(playersLocalStorageKey));
     data = data.players;
-    for(let i = 0; i < data.length; i++){
-        if(data[i].player == id)
-            data.splice(i, i + 1);
-        // overwrite data di local storage, ambil arraynya, hapus index yg dimaksud, hapus di local storage, set ulang dengan array yg baru
+
+    if(data.length == 1)
+        resetStorage(playersLocalStorageKey);
+    else {
+        for(let i = 0; i < data.length; i++){
+            if(data[i].id != id)
+                playersArray.push(data[i]);
+        }
+        resetStorage(playersLocalStorageKey);
+        data = {players : playersArray};
+        localStorage.setItem(playersLocalStorageKey, JSON.stringify(data));
     }
+    renderSelectedPlayers();
 }
 
 export { formationLocalStorageKey, checkForStorage, resetStorage, setFormation, searchFormation, storePlayer, playersLocalStorageKey, removePlayer };
