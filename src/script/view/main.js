@@ -63,6 +63,9 @@ const main = () => {
         resetDisplay();
         if(checkForStorage()){
             if(localStorage.getItem(formationLocalStorageKey) !== null){
+                let selectedFormationIndex = searchFormation();
+                $(".chosen-formation-image").attr("src", `${formation[selectedFormationIndex].image}`);
+                $(".chosen-formation-name").html(`${formation[selectedFormationIndex].name}`);
                 showDisplay([{elemen: dialogBox, status: "show"}]);
                 $(".create-new").click(function(){
                     resetStorage(formationLocalStorageKey);
@@ -70,7 +73,6 @@ const main = () => {
                 });
                 $(".continue").click(function(){
                     showDisplay([{elemen: dialogBox, status: "hide"}, {elemen: chosenFormation, status: "show"}, {elemen: playerSearchField, status: "show"}]);
-                    let selectedFormationIndex = searchFormation();
                     renderSelectedFormation(selectedFormationIndex);
                     showDisplay([{elemen: chosenPlayerField, status: "show"}]);
                     renderSelectedPlayers();

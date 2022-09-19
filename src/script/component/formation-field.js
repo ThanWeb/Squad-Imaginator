@@ -8,12 +8,12 @@ class FormationField extends HTMLElement {
     render(){
         this.innerHTML = `
             <h1>Choose Your Formation</h1>
-            <div> 
-                <img src="https://img.icons8.com/sf-regular/48/000000/chevron-left.png" alt="left-button" class="left-button button"/>
+            <div class="choose-formation"> 
+                <img src="https://img.icons8.com/sf-regular/48/000000/chevron-left.png" alt="left-button" class="left-button button" onclick="event.stopPropagation()"/>
                 <img src="${formation[15].image}" alt="formation" class="formation-image">
-                <img src="${formation[0].image}" alt="formation" class="formation-image">
+                <img src="${formation[0].image}" alt="formation" class="formation-image showed">
                 <img src="${formation[1].image}" alt="formation" class="formation-image">
-                <img src="https://img.icons8.com/sf-regular/48/000000/chevron-right.png" alt="right-button" class="right-button button"/>
+                <img src="https://img.icons8.com/sf-regular/48/000000/chevron-right.png" alt="right-button" class="right-button button" onclick="event.stopPropagation()"/>
             </div>
             <h2 class="formation-name">${formation[0].name}</h2>
             <button class="choose-formation">Go</button>

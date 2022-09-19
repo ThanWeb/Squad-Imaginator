@@ -1,5 +1,4 @@
 To Do Important:
-- install tailwind
 - rendering pemain sesuai posisinya, sarannya menaruh posisi semua pemain itu menggunakan properti relative atau fixed
 - buat formation template pake custom component, jadinya udah disediakan div unutk contohnya posisi GK, RWB, RMF dsb
 - tambahin satu local storage untuk pemain yang masuk starting line up

@@ -1,7 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
 
+@mixin flexbox {
+    
+}
+
 body {
     font-family: 'Iceberg', cursive;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 100%;
+}
+
+.choose-formation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formation-image {
+    width: 25%;
+}
+
+.showed {
+    width: 35%;
+}
+
+
+
+.chosen-formation-image {
+    width: 40%;
 }
 
 button, .button, .player-position{
