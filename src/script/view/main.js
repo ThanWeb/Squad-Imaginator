@@ -1,6 +1,7 @@
 import '../component/dialog-box.js';
 import '../component/formation-field.js';
 import '../component/chosen-formation.js';
+import '../component/formation-template.js';
 import '../component/chosen-player-field.js';
 import '../component/player-search-field.js';
 import '../component/copyright.js';
@@ -42,9 +43,20 @@ const main = () => {
         });
     }
 
+    const setClassEachPlayer = index => {
+        const playerPositions = $(".player-position");
+        for(let i = 0; i < playerPositions.length; i++){
+            playerPositions[i].classList.add(`${formation[index].position[i]}`);
+            playerPositions[i].innerHTML = `${formation[index].positionName[i]}`;
+        }
+    }
+
     const renderSelectedFormation = index => {
         $(".chosen-formation-image").attr("src", `${formation[index].image}`);
         $(".chosen-formation-name").html(`${formation[index].name}`);
+        const template = document.createElement("formation-template");
+        chosenFormation.append(template);
+        setClassEachPlayer(index);
     }
     
     $(document).ready(function(){
