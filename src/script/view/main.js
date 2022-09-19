@@ -31,7 +31,7 @@ const main = () => {
     }
 
     const resetDisplay = () => {
-        dialogBox.hide(), chosenFormation.hide(), playerSearchField.hide(), formationField.hide(), chosenPlayerField.hide(), $(".loading").hide();
+        dialogBox.hide(), chosenFormation.hide(), playerSearchField.hide(), formationField.hide(), chosenPlayerField.hide(), $(".loading").hide(), $("formation-template").remove();
     }
 
     const showDisplay = queues => {
@@ -99,6 +99,7 @@ const main = () => {
         $(".change-formation").click(function(){
             resetStorage(formationLocalStorageKey);
             showDisplay([{elemen: formationField, status: "show"}, {elemen: chosenFormation, status: "hide"}, {elemen: playerSearchField, status: "hide"}, {elemen: chosenPlayerField, status: "hide"}]);
+            $("formation-template").remove()
         });
 
         $(".submit-player-name").click(function(){

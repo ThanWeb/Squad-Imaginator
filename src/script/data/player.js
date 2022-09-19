@@ -36,7 +36,7 @@ const renderResult = players => {
 
 const setEventSelectButton = () => {
     const allPlayerButton = $(".select-player"), allPlayerId = $(".player-id"), allPlayerName = $(".player-name"), allPlayerTeam = $(".player-team"), allPlayersImage = $(".player-image"), allPlayerNationality = $(".player-nationality");
-    let tempPlayers = {id: '', name: '', team: '', nationality: '', img: ''}
+    let tempPlayers = {id: '', name: '', team: '', nationality: '', img: '', bench: true};
 
     for(let i = 0; i < allPlayerButton.length; i++){
         allPlayerButton[i].addEventListener("click", function(){
