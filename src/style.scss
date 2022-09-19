@@ -4,12 +4,6 @@ body {
     font-family: 'Iceberg', cursive;
 }
 
-button, .button {
+button, .button, .player-position{
     cursor: pointer;
-}
-
-formation-field, player-field {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }

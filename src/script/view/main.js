@@ -43,7 +43,7 @@ const main = () => {
         });
     }
 
-    const setClassEachPlayer = index => {
+    const setEachPosition = index => {
         const playerPositions = $(".player-position");
         for(let i = 0; i < playerPositions.length; i++){
             playerPositions[i].classList.add(`${formation[index].position[i]}`);
@@ -56,7 +56,7 @@ const main = () => {
         $(".chosen-formation-name").html(`${formation[index].name}`);
         const template = document.createElement("formation-template");
         chosenFormation.append(template);
-        setClassEachPlayer(index);
+        setEachPosition(index);
     }
     
     $(document).ready(function(){
