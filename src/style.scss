@@ -1,40 +1,189 @@
 @import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
 
-@mixin flexbox {
-    
+// Mixin
+
+@mixin flex-box($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction; 
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin formation-shadow {
+    filter: drop-shadow(2px 2px 2px var(--white));
+}
+
+@mixin button-style ($background: var(--blue)){
+    border-style: none;
+    border-radius: 5px;
+    background-color: $background;
+    color: var(--white);
+    padding: 5px 20px;
+}
+
+@mixin player-card {
+    margin: 10px auto;
+    width: 80%;
+    @include flex-box();
+    img {
+        width: 30%;
+        border-radius: 20px;
+    }
+    div {
+        padding: 20px;
+        width: 70%;
+    }
+}
+
+// Body or General
+
+:root {
+    --black: #1B2430;
+    --white: #FFFFFF;
+    --blue: #25316D;
+    --purple: #51557E;
+    --beige: #D6D5A8;
+    --red: #EF4B4B;
+    --teal: #7ECFC0;
 }
 
 body {
-    font-family: 'Iceberg', cursive;
+    background-color: var(--black);
+    color: var(--white);
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    user-select: none;
+    font-size: 14px;
 }
 
-.logo {
-    width: 100%;
+body, input, textarea, button {
+    font-family: 'Iceberg', cursive;
 }
 
-.choose-formation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+    @include flex-box($direction: column);
 }
 
-.formation-image {
-    width: 25%;
+header, main, footer {
+    margin: 20px 0;
 }
 
-.showed {
-    width: 35%;
+dialog-box, formation-field, chosen-formation, line-up-field, player-search-field, player-search-list, player-search-item, chosen-player-field, chosen-player-list, chosen-player-item, copyright-field {
+    display: block;
 }
 
-
-
-.chosen-formation-image {
-    width: 40%;
+formation-field, chosen-formation, line-up-field, player-search-field, chosen-player-field {
+    margin-bottom: 80px;
 }
 
 button, .button, .player-position{
     cursor: pointer;
 }
+
+// Header
+
+
+
+.logo {
+    width: 100%;
+}
+
+
+// Main
+
+main {
+    width: 100vw;
+}
+
+// Dialog Box
+
+.create-new {
+    @include button-style($background: var(--teal));
+}
+
+.continue {
+    @include button-style($background: var(--red));
+}
+
+// Formation Field
+
+.choose-formation-field {
+    @include flex-box();
+    margin: auto;
+}
+
+.formation-image {
+    width: 20%;
+    @include formation-shadow();
+}
+
+.showed {
+    margin: 0 5px;
+    width: 35%;
+}
+
+.left-button, .right-button {
+    width: 15%;
+    filter: invert(70%);
+}
+
+.left-button:hover, .right-button:hover {
+    filter: invert(100%);
+}
+
+.choose-formation {
+    @include button-style();
+}
+
+.choose-formation:hover {
+    background-color: var(--beige);
+}
+
+// Chosen Formation
+
+.chosen-formation-image {
+    width: 60%;
+    @include formation-shadow();
+}
+
+line-up-field {
+    width: 100%;
+    overflow-x: scrollx;
+    flex-wrap: wrap;
+    .players {
+        @include player-card();
+    }
+}
+
+.change-formation {
+    @include button-style();
+}
+
+// Player Search Field
+
+.submit-player-name {
+    @include button-style();
+}
+
+player-search-list {
+    margin-top: 30px;
+}
+
+player-search-item {
+    @include player-card();
+}
+
+.select-player {
+    @include button-style($background: var(--teal))
+}
+
+// Chosen Player Field
+
+chosen-player-item {
+    @include player-card();
+}
+
+.remove-player {
+    @include button-style($background: var(--red));
+}
+
+// Footer

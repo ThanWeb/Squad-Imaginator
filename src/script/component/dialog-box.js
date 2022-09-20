@@ -5,9 +5,9 @@ class DialogBox extends HTMLElement {
 
     render(){
         this.innerHTML = `
-            <p>Previous Formation has been saved<p>
+            <h2>Previous Formation has been saved<h2>
             <img src="" alt="formation" class="chosen-formation-image">
-            <h2 class="chosen-formation-name"></h2>
+            <h3 class="chosen-formation-name"></h3>
             <p>Make a new one?</p>
             <button class="create-new">Yes</button>
             <button class="continue">No</button>

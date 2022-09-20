@@ -7,6 +7,7 @@ class PlayerSearchField extends HTMLElement {
 
     render(){
         this.innerHTML = `
+            <h2>Search Player</h2>
             <input type="text" id="player-name" placeholder="Player name is ..">
             <button class="submit-player-name" type="submit">Search</button>
             <p class="loading" hid>Loading ... </p>

@@ -7,7 +7,7 @@ class ChosenPlayerField extends HTMLElement {
 
     render(){
         this.innerHTML = `
-            <h2>Your Players</h2>
+            <h2>Bench</h2>
         `;
     }
 }

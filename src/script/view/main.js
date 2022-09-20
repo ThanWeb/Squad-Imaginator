@@ -1,7 +1,7 @@
 import '../component/dialog-box.js';
 import '../component/formation-field.js';
 import '../component/chosen-formation.js';
-import '../component/formation-template.js';
+import '../component/line-up-field.js';
 import '../component/chosen-player-field.js';
 import '../component/player-search-field.js';
 import '../component/copyright.js';
@@ -12,7 +12,7 @@ import { formationLocalStorageKey, checkForStorage, resetStorage, setFormation, 
 
 const main = () => {
     let temp;
-    const dialogBox = $("dialog-box"), formationField = $("formation-field"), chosenFormation = $("chosen-formation"), chosenPlayerField = $("chosen-player-field"), playerSearchField = $("player-search-field"), allFormationImage = $(".formation-image");
+    const dialogBox = $("dialog-box"), formationField = $("formation-field"), chosenFormation = $("chosen-formation"), chosenPlayerField = $("chosen-player-field"), playerSearchField = $("player-search-field"), allFormationImage = $(".formation-image"), lineUpField = $("line-up-field");
 
     const changePicture = value => {
         if(value == 1){
@@ -31,7 +31,7 @@ const main = () => {
     }
 
     const resetDisplay = () => {
-        dialogBox.hide(), chosenFormation.hide(), playerSearchField.hide(), formationField.hide(), chosenPlayerField.hide(), $(".loading").hide(), $("formation-template").remove();
+        dialogBox.hide(), chosenFormation.hide(), playerSearchField.hide(), formationField.hide(), chosenPlayerField.hide(), $(".loading").hide(), lineUpField.hide();
     }
 
     const showDisplay = queues => {
@@ -46,7 +46,7 @@ const main = () => {
     const setEachPosition = index => {
         const playerPositions = $(".player-position");
         for(let i = 0; i < playerPositions.length; i++){
-            playerPositions[i].classList.add(`${formation[index].position[i]}`);
+            // playerPositions[i].classList.add(`${formation[index].position[i]}`);
             playerPositions[i].innerHTML = `${formation[index].positionName[i]}`;
         }
     }
@@ -54,8 +54,7 @@ const main = () => {
     const renderSelectedFormation = index => {
         $(".chosen-formation-image").attr("src", `${formation[index].image}`);
         $(".chosen-formation-name").html(`${formation[index].name}`);
-        const template = document.createElement("formation-template");
-        chosenFormation.append(template);
+        lineUpField.show();
         setEachPosition(index);
     }
     
@@ -101,7 +100,7 @@ const main = () => {
         $(".change-formation").click(function(){
             resetStorage(formationLocalStorageKey);
             showDisplay([{elemen: formationField, status: "show"}, {elemen: chosenFormation, status: "hide"}, {elemen: playerSearchField, status: "hide"}, {elemen: chosenPlayerField, status: "hide"}]);
-            $("formation-template").remove()
+            lineUpField.hide();
         });
 
         $(".submit-player-name").click(function(){

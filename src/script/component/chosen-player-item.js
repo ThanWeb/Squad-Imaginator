@@ -11,12 +11,14 @@ class ChosenPlayerItem extends HTMLElement {
         if(this._player.img == null)
             this._player.img = `${defaultImage}`;
         this.innerHTML = `
-            <span class="selected-player-id" hidden>${this._player.id}</span>
-            <p class="selected-player-name">${this._player.name}</p>
-            <p class="selected-player-team">${this._player.team}</p>
-            <p class="selected-player-nationality">${this._player.nationality}</p>
             <img class="selected-player-image" alt="${this._player.name}" src="${this._player.img}">
-            <button class="remove-player">Remove</button>
+            <div>
+                <span class="selected-player-id" hidden>${this._player.id}</span>
+                <p class="selected-player-name">${this._player.name}</p>
+                <p class="selected-player-team">${this._player.team}</p>
+                <p class="selected-player-nationality">${this._player.nationality}</p>
+                <button class="remove-player">Remove</button>
+            </div>
         `;
     }
 }

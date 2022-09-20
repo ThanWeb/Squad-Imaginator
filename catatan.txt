@@ -1,7 +1,6 @@
 To Do Important:
-- rendering pemain sesuai posisinya, sarannya menaruh posisi semua pemain itu menggunakan properti relative atau fixed
-- buat formation template pake custom component, jadinya udah disediakan div unutk contohnya posisi GK, RWB, RMF dsb
-- tambahin satu local storage untuk pemain yang masuk starting line up
+- Buat tombol select untuk bisa nambahin pemain ke line-up
+- pas udah ada data, tombolnya berubah jadi bench
 
 To Do Optional:
 - Menambahkan tombol untuk menghapus semua daftar pemain

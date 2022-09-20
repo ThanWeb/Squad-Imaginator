@@ -11,12 +11,14 @@ class PlayerSearchItem extends HTMLElement {
         if(this._player.strThumb == null)
             this._player.strThumb = `${defaultImage}`;
         this.innerHTML = `
-            <span class="player-id" hidden>${this._player.idPlayer}</span>
-            <p class="player-name">${this._player.strPlayer}</p>
-            <p class="player-team">${this._player.strTeam}</p>
-            <p class="player-nationality">${this._player.strNationality}</p>
             <img class="player-image" alt="${this._player.strPlayer}" src="${this._player.strThumb}">
-            <button class="select-player">Select</button>
+            <div>
+                <span class="player-id" hidden>${this._player.idPlayer}</span>
+                <p class="player-name">${this._player.strPlayer}</p>
+                <p class="player-team">${this._player.strTeam}</p>
+                <p class="player-nationality">${this._player.strNationality}</p>
+                <button class="select-player">Select</button>
+            </div>
         `;
     }
 }
