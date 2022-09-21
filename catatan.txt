@@ -1,8 +1,8 @@
 To Do Important:
-- Buat tombol select untuk bisa nambahin pemain ke line-up
-- pas udah ada data, tombolnya berubah jadi bench
+- media query
 
 To Do Optional:
+- Kasikin bendera untuk nationality dan logo club
 - Menambahkan tombol untuk menghapus semua daftar pemain
 - Menerapkan minifying bundel.js, Plugin pada Webpack
 - convert gambar jadi svg
@@ -57,3 +57,12 @@ Mengubah cara untuk render pemain yang dicari dan yang sudah dipilih menggunakan
 Menambahkan jumlah maksimal pemain yang bisa ditambahkan
 Menambahkan tombol untuk menghapus pemain dari dalam daftar pemain
 40 menit
+
+Menambahkan array positionName pada objek formation dan menambahkan fungsi cetak nama posisi di line-up
+Menambahkan properti bench pada data pemain untuk menentukan pemain masuk line-up atau tidak
+Konfigurasi SCSS
+60 menit
+
+Menambah 2 custom element, merubah data formasi khususnya properti formationName
+Melakukan aktivitas layouting dan styling menggunakan SCSS
+120 menit

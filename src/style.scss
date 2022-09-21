@@ -19,6 +19,11 @@
     background-color: $background;
     color: var(--white);
     padding: 5px 20px;
+    font-size: 14px;
+    &:hover {
+        background-color: var(--beige);
+        color: var(--black);
+    }
 }
 
 @mixin player-card {
@@ -41,10 +46,10 @@
     --black: #1B2430;
     --white: #FFFFFF;
     --blue: #25316D;
-    --purple: #51557E;
     --beige: #D6D5A8;
     --red: #EF4B4B;
-    --teal: #7ECFC0;
+    --yellow: #FFCB42;
+    --green: #6EC080;
 }
 
 body {
@@ -67,7 +72,7 @@ header, main, footer {
     margin: 20px 0;
 }
 
-dialog-box, formation-field, chosen-formation, line-up-field, player-search-field, player-search-list, player-search-item, chosen-player-field, chosen-player-list, chosen-player-item, copyright-field {
+title-field, dialog-box, formation-field, chosen-formation, line-up-field, player-search-field, player-search-list, player-search-item, chosen-player-field, chosen-player-list, chosen-player-item, modal-all-player, copyright-field {
     display: block;
 }
 
@@ -81,12 +86,9 @@ button, .button, .player-position{
 
 // Header
 
-
-
 .logo {
     width: 100%;
 }
-
 
 // Main
 
@@ -97,7 +99,7 @@ main {
 // Dialog Box
 
 .create-new {
-    @include button-style($background: var(--teal));
+    @include button-style($background: var(--green));
 }
 
 .continue {
@@ -134,10 +136,6 @@ main {
     @include button-style();
 }
 
-.choose-formation:hover {
-    background-color: var(--beige);
-}
-
 // Chosen Formation
 
 .chosen-formation-image {
@@ -158,6 +156,26 @@ line-up-field {
     @include button-style();
 }
 
+// line Up Field 
+
+.select-starting {
+    @include button-style($background: var(--green));
+}
+
+.go-to-bench {
+    @include button-style($background: var(--yellow));
+}
+
+// Chosen Player Field
+
+chosen-player-item {
+    @include player-card();
+}
+
+.remove-player {
+    @include button-style($background: var(--red));
+}
+
 // Player Search Field
 
 .submit-player-name {
@@ -173,17 +191,59 @@ player-search-item {
 }
 
 .select-player {
-    @include button-style($background: var(--teal))
+    @include button-style($background: var(--green))
 }
 
-// Chosen Player Field
+// Modal All Player 
 
-chosen-player-item {
-    @include player-card();
+modal-all-player {
+    background-color: rgba(0, 0, 0, .9);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    @include flex-box($direction: column);
+    border-radius: 10px;
+    div {
+        border: 1px solid var(--yellow);
+        width: 100%;
+        padding: 20px;
+    }
 }
 
-.remove-player {
+.modal-player-list {
+    width: 100%;
+    border-spacing: 8px;
+}
+
+.line-up-in {
+    @include button-style($background: var(--green));
+}
+
+.exit-modal {
     @include button-style($background: var(--red));
 }
 
-// Footer
+// Media Query
+
+@media (max-width: 320px) {
+
+}
+
+@media (min-width: 375px) {
+
+}
+
+@media (min-width: 576px) { 
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1440px) {
+
+}

@@ -1,5 +1,3 @@
-import formation from "../data/formation.js";
-
 class ChosenFormation extends HTMLElement {
     connectedCallback(){
         this.render();

@@ -8,6 +8,7 @@ class ChosenPlayerField extends HTMLElement {
     render(){
         this.innerHTML = `
             <h2>Bench</h2>
+            <p class="zero-bench">There is no players on the bench</p>
         `;
     }
 }

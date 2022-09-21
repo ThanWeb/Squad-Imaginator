@@ -10,7 +10,8 @@ class ChosenPlayersList extends HTMLElement {
         this._players.forEach(player => {
             const ChosenPlayerItem = document.createElement("chosen-player-item");
             ChosenPlayerItem.player = player;
-            this.appendChild(ChosenPlayerItem);
+            if(player.bench == true)
+                this.appendChild(ChosenPlayerItem);
         });
     }
 }

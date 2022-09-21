@@ -1,6 +1,6 @@
 import '../component/player-search-field.js';
 import $ from 'jquery';
-import { playersLocalStorageKey, storePlayer, checkForStorage, removePlayer } from './storage.js';
+import { playersLocalStorageKey, getStorage, storePlayer, checkForStorage, removePlayer } from './storage.js';
 
 const baseUrl = 'https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=';
 
@@ -36,7 +36,7 @@ const renderResult = players => {
 
 const setEventSelectButton = () => {
     const allPlayerButton = $(".select-player"), allPlayerId = $(".player-id"), allPlayerName = $(".player-name"), allPlayerTeam = $(".player-team"), allPlayersImage = $(".player-image"), allPlayerNationality = $(".player-nationality");
-    let tempPlayers = {id: '', name: '', team: '', nationality: '', img: '', bench: true};
+    let tempPlayers = {id: '', name: '', team: '', nationality: '', img: '', bench: true, position: -1};
 
     for(let i = 0; i < allPlayerButton.length; i++){
         allPlayerButton[i].addEventListener("click", function(){
@@ -52,18 +52,20 @@ const setEventSelectButton = () => {
 }
 
 const renderSelectedPlayers = () => {  
-    const chosenPlayerField = $("chosen-player-field")
+    const chosenPlayerField = $("chosen-player-field");
     if(checkForStorage()){
-        if(localStorage.getItem(playersLocalStorageKey) !== null){
+        if(getStorage(playersLocalStorageKey) !== null){
+            let data = getStorage(playersLocalStorageKey);
             $("chosen-player-field").show();
-            let data = localStorage.getItem(playersLocalStorageKey);
-            data = JSON.parse(data);
             if($("chosen-player-list"))
                 $("chosen-player-list").remove();
             const chosenPlayerList = document.createElement("chosen-player-list");
             chosenPlayerList.players = data.players;
             chosenPlayerField.append(chosenPlayerList);
             setRemoveButton();
+            checkTotalBench(data);
+            renderLineUp(data);
+            $(".modal-player-list").empty();
         } else {
             $("chosen-player-field").hide();
         }
@@ -78,6 +80,34 @@ const setRemoveButton = () => {
             removePlayer(allSelectedPlayerId[i].innerHTML);
         });
     }
+}
+
+const checkTotalBench = data => {
+    let benchPlayers = 0;
+    data.players.forEach(player => {
+        if(player.bench == true)
+            benchPlayers++;
+    });
+
+    if(benchPlayers == 0)
+        $(".zero-bench").show();
+    else
+        $(".zero-bench").hide();
+}
+
+const renderLineUp = data => {
+    const allPlayerImage = $(".starting-player-image"), allPlayerId = $(".starting-player-id"), allPlayerName = $(".starting-player-name"), allPlayerTeam = $(".starting-player-team"), allPlayerNationality = $(".starting-player-nationality"), selectStarting = $(".select-starting");
+    data.players.forEach(player => {
+        if(player.bench == false){
+            allPlayerImage[player.position].setAttribute("src", `${player.img}`);
+            allPlayerId[player.position].innerHTML = `${player.id}`;
+            allPlayerName[player.position].innerHTML = `${player.name}`;
+            allPlayerTeam[player.position].innerHTML = `${player.team}`;
+            allPlayerNationality[player.position].innerHTML = `${player.nationality}`;
+            selectStarting[player.position].innerHTML = "Bench";
+            selectStarting[player.position].classList.add("go-to-bench");
+        }
+    });
 }
 
 export { searchPlayer, renderSelectedPlayers };

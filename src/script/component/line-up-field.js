@@ -1,4 +1,5 @@
 import './line-up-item.js';
+import { getStorage, playersLocalStorageKey } from '../data/storage.js';
 
 class LineUpField extends HTMLElement {
     connectedCallback(){
@@ -11,9 +12,9 @@ class LineUpField extends HTMLElement {
             <div class="starting-list"></div>
         `;
 
+        const startingList = document.querySelector(".starting-list");
         for(let i = 0; i < 11; i++){
             const lineUpItem = document.createElement("line-up-item");
-            const startingList = document.querySelector(".starting-list");
             startingList.appendChild(lineUpItem);
         }
     }

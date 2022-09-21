@@ -6,7 +6,7 @@ class LineUpItem extends HTMLElement {
     render(){
         this.innerHTML = `
             <div class="players">
-                <img src="http://antekteknologi.my.id/wp-content/uploads/2022/09/player-default-image.png">
+                <img src="http://antekteknologi.my.id/wp-content/uploads/2022/09/player-default-image.png" class="starting-player-image">
                 <div>
                     <span class="starting-player-id" hidden></span>
                     <p class="starting-player-name">???</p>
