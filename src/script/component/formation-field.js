@@ -7,7 +7,7 @@ class FormationField extends HTMLElement {
 
     render(){
         this.innerHTML = `
-            <h2>Choose Your Formation</h2>
+            <h3>Choose Your Formation</h3>
             <div class="choose-formation-field"> 
                 <img src="https://img.icons8.com/sf-regular/48/000000/chevron-left.png" alt="left-button" class="left-button button" onclick="event.stopPropagation()"/>
                 <img src="${formation[15].image}" alt="formation" class="formation-image" onclick="event.stopPropagation()">

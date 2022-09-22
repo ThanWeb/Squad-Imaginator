@@ -17,7 +17,10 @@ const searchPlayer = async () => {
         $(".loading").hide();
         renderResult(responseJson.player);
     } catch (error) {
-        alert(error);
+        $(".not-found-alert").show();
+        setTimeout(() => {
+            $(".not-found-alert").hide();
+        }, 2000);
         $(".loading").hide();
     }
 }

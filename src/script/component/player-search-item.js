@@ -8,6 +8,8 @@ class PlayerSearchItem extends HTMLElement {
         const defaultImage = 'http://antekteknologi.my.id/wp-content/uploads/2022/09/player-default-image.png';
         if(this._player.strTeam == '_Retired Soccer')
             this._player.strTeam = 'Retired';
+        else if(this._player.strTeam == '_Deceased Soccer')
+            this._player.strTeam = 'Passing Away';
         if(this._player.strThumb == null)
             this._player.strThumb = `${defaultImage}`;
         this.innerHTML = `

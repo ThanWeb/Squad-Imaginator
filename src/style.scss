@@ -52,15 +52,19 @@
     --green: #6EC080;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--black);
     color: var(--white);
     text-align: center;
     user-select: none;
-    font-size: 14px;
 }
 
 body, input, textarea, button {
+    font-size: 14px;
     font-family: 'Iceberg', cursive;
 }
 
@@ -72,7 +76,7 @@ header, main, footer {
     margin: 20px 0;
 }
 
-title-field, dialog-box, formation-field, chosen-formation, line-up-field, player-search-field, player-search-list, player-search-item, chosen-player-field, chosen-player-list, chosen-player-item, modal-all-player, copyright-field {
+title-field, dialog-box, formation-field, chosen-formation, line-up-field, line-up-item, player-search-field, player-search-list, player-search-item, chosen-player-field, chosen-player-list, chosen-player-item, modal-all-player, copyright-field {
     display: block;
 }
 
@@ -84,6 +88,10 @@ button, .button, .player-position{
     cursor: pointer;
 }
 
+line-up-item, chosen-player-item, player-search-item {
+    @include player-card();
+}
+
 // Header
 
 .logo {
@@ -91,10 +99,6 @@ button, .button, .player-position{
 }
 
 // Main
-
-main {
-    width: 100vw;
-}
 
 // Dialog Box
 
@@ -139,7 +143,7 @@ main {
 // Chosen Formation
 
 .chosen-formation-image {
-    width: 60%;
+    width: 50%;
     @include formation-shadow();
 }
 
@@ -147,9 +151,6 @@ line-up-field {
     width: 100%;
     overflow-x: scrollx;
     flex-wrap: wrap;
-    .players {
-        @include player-card();
-    }
 }
 
 .change-formation {
@@ -168,10 +169,6 @@ line-up-field {
 
 // Chosen Player Field
 
-chosen-player-item {
-    @include player-card();
-}
-
 .remove-player {
     @include button-style($background: var(--red));
 }
@@ -188,10 +185,6 @@ chosen-player-item {
 
 player-search-list {
     margin-top: 30px;
-}
-
-player-search-item {
-    @include player-card();
 }
 
 .select-player {
@@ -233,21 +226,95 @@ modal-all-player {
 // Media Query
 
 @media (min-width: 576px) { 
+    body, input, textarea, button {
+        font-size: 14px;
+    }
 
+    line-up-item, chosen-player-item, player-search-item {
+        width: 60%;
+    }
+
+    .chosen-formation-image {
+        width: 35%;
+    }
 }
 
 @media (min-width: 768px) {
-
+    body, input, textarea, button {
+        font-size: 16px;
+    }
 }
 
 @media (min-width: 992px) {
+    body {
+        font-size: 18px;
+    }
 
+    player-search-list, chosen-player-list, .starting-list {
+        @include flex-box();
+        flex-wrap: wrap;
+    }
+
+    line-up-item, chosen-player-item, player-search-item {
+        width: 40%;
+    }
+
+    title-field {
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .formation-image {
+        width: 15%;
+    }
+
+    .showed {
+        width: 20%;
+        margin: 0 1em;
+    }
+
+    .left-button, .right-button {
+        width: 4em;
+    }
+    
+    dialog-box {
+        display: grid;
+        grid-template-columns: auto auto;
+        .image {
+            grid-row-end: span 2;
+        }
+        .chosen-formation-image {
+            width: 50%;
+        }
+    }
 }
 
 @media (min-width: 1200px) {
+    line-up-item, chosen-player-item, player-search-item {
+        width: 30%;
+    }
 
+    dialog-box {
+        .chosen-formation-image {
+            width: 60%;
+        }
+    }
+
+    chosen-formation {
+        .chosen-formation-image {
+            width: 15%;
+        }
+    }
 }
 
 @media (min-width: 1440px) {
-
+    chosen-formation {
+        .chosen-formation-image {
+            width: 20%;
+        }
+    }
 }
