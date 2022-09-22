@@ -182,6 +182,10 @@ chosen-player-item {
     @include button-style();
 }
 
+.invalid-character-alert {
+    color: var(--red);
+}
+
 player-search-list {
     margin-top: 30px;
 }
@@ -228,15 +232,15 @@ modal-all-player {
 
 // Media Query
 
-@media (max-width: 320px) {
-
-}
-
-@media (min-width: 375px) {
-
-}
-
 @media (min-width: 576px) { 
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
 
 }
 

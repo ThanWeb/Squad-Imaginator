@@ -23,7 +23,23 @@ const searchPlayer = async () => {
 }
 
 const checkString = string => {
-    return string.replace(" ", "%20");
+    let result = '', array = [], temp = '';
+    for(let i = 0; i < string.length; i++){
+        if(string[i] != ' ')
+            temp = temp + string[i];
+        else{
+            array.push(temp);
+            temp = '';
+        }
+    }
+    array.push(temp);
+
+    array.forEach(string => {
+        if(string != '')
+            result = result + string + '%20'
+    });
+    result = result.slice(0, -3);
+    return result;
 }
 
 const renderResult = players => {

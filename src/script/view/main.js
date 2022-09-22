@@ -74,6 +74,31 @@ const main = () => {
         }
     }
 
+    const checkCharacter = string => {
+        let unicodeValue, flag = 1;
+        if(string != ''){
+            $(".submit-player-name").prop('disabled', false);
+            for(let i = 0; i < string.length; i++){
+                unicodeValue = string.charCodeAt(i);
+                if(unicodeValue < 65 || unicodeValue > 122)
+                    if(unicodeValue == 32)
+                        flag = flag * 1;
+                    else
+                        flag = flag * 0;
+            }
+            if(flag == 0){
+                $(".submit-player-name").prop('disabled', true);  
+                $(".invalid-character-alert").show();
+            }
+            else{
+                $(".submit-player-name").prop('disabled', false);
+                $(".invalid-character-alert").hide();
+            }
+        }
+        else 
+            $(".submit-player-name").prop('disabled', true);  
+    }
+
     const renderSelectedFormation = index => {
         $(".chosen-formation-image").attr("src", `${formation[index].image}`);
         $(".chosen-formation-name").html(`${formation[index].name}`);
@@ -130,7 +155,6 @@ const main = () => {
             lineUpIn[i].addEventListener("click", function(){
                 changeBenchStatus(lineUpIn[i].id, index);
                 modalAllPlayer.hide();
-                console.log(index);
             });
         }
     }
@@ -163,8 +187,13 @@ const main = () => {
             lineUpField.hide();
         });
 
+        $(".submit-player-name").prop('disabled', true);
         $(".submit-player-name").click(function(){
             searchPlayer();
+        });
+
+        $("#player-name").keyup(function(){
+            checkCharacter($("#player-name").val());
         });
 
         const startingButton = $(".select-starting");
