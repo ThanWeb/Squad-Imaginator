@@ -8,7 +8,7 @@ class ChosenPlayerItem extends HTMLElement {
         const defaultImage = 'http://antekteknologi.my.id/wp-content/uploads/2022/09/player-default-image.png';
         if(this._player.team == '_Retired Soccer')
             this._player.team = 'Retired';
-        else(this._player.team == '_Deceased Soccer')
+        else if (this._player.team == '_Deceased Soccer')
             this._player.team = 'Passing Away';
         if(this._player.img == null)
             this._player.img = `${defaultImage}`;
